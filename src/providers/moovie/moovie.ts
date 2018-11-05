@@ -18,8 +18,11 @@ export class MoovieProvider {
     console.log('Hello MoovieProvider Provider');
   }
 
-  getLatestMoovies() {
-    return this.http.get(this.baseApiPath + "/movie/popular?api_key=API_KEY"); // chave da APi https://www.themoviedb.org/
+  getLatestMoovies(page = 1) {
+    return this.http.get(this.baseApiPath + `/movie/popular?page=${page}&api_key=API_KEY`); // chave da APi https://www.themoviedb.org/
   }
 
+  getMooviesDatails(filmeid) {
+    return this.http.get(this.baseApiPath + `/movie/${filmeid}?api_key=API_KEY`); // chave da APi https://www.themoviedb.org/
+  }
 }
